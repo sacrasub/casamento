@@ -24,8 +24,9 @@ export default function Home() {
               A Cerimônia e Recepção
             </h3>
             <p className="text-lg text-foreground/80 leading-relaxed font-sans">
-              Tabatinga - AM<br />
-              <span className="font-semibold">Data:</span> 18 de Abril de 2026<br />
+              Igreja Congregacional de Mangueira<br />
+              Av. Santos Dumont, 30 - Vila Ibirapitanga, Itaguaí - RJ<br />
+              <span className="font-semibold mt-2 block">Data:</span> 18 de Abril de 2026<br />
               <span className="font-semibold">Horário:</span> 18h30
             </p>
             <div className="space-y-4">
@@ -39,11 +40,16 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="w-full h-80 bg-secondary/20 rounded-2xl overflow-hidden shadow-inner flex items-center justify-center p-4 border border-primary/10">
-            <div className="text-center space-y-2">
-              <span className="text-primary/60 font-serif italic text-xl">Mapa de Tabatinga - AM</span>
-              <p className="text-xs uppercase tracking-widest text-foreground/40">O mapa será integrado aqui</p>
-            </div>
+          <div className="w-full h-80 bg-secondary/20 rounded-2xl overflow-hidden shadow-inner flex items-center justify-center border border-primary/10 relative">
+            <iframe 
+               width="100%" 
+               height="100%" 
+               style={{ border: 0 }} 
+               loading="lazy" 
+               allowFullScreen
+               src="https://maps.google.com/maps?q=Av.+Santos+Dumont,+30+-+Vila+Ibirapitanga,+Itagua%C3%AD+-+RJ&t=&z=15&ie=UTF8&iwloc=&output=embed"
+               title="Mapa do Local"
+            />
           </div>
         </div>
       </section>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const TARGET_DATE = new Date("2026-04-18T00:00:00");
 
@@ -12,6 +13,22 @@ export function Hero() {
     minutes: 0,
     seconds: 0,
   });
+
+  const images = [
+    "/images/hero/photo1.jpg",
+    "/images/hero/photo2.jpg",
+    "/images/hero/photo3.jpg",
+    "/images/hero/photo4.jpg",
+    "/images/hero/photo5.jpg",
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const imageTimer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(imageTimer);
+  }, [images.length]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -32,9 +49,27 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-secondary/30">
-      {/* Background with a soft gradient for now */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-secondary/50 to-background" />
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Background Slideshow */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={currentImageIndex}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 0.6, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <Image
+            src={images[currentImageIndex]}
+            alt="Background Couple Image"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </motion.div>
+      </AnimatePresence>
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-background via-black/30 to-black/10" />
 
       <div className="relative z-10 text-center px-4 space-y-8">
         <motion.div
@@ -45,13 +80,13 @@ export function Hero() {
           } as any)}
           className="space-y-4"
         >
-          <p className="text-primary font-serif italic text-xl md:text-2xl tracking-widest uppercase">
+          <p className="text-primary font-serif italic text-xl md:text-2xl tracking-widest uppercase text-shadow">
             Nós vamos nos casar!
           </p>
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif text-foreground leading-tight">
+          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif text-white leading-tight drop-shadow-md">
             Daniel Sacramento <span className="text-primary">&</span> Shirley Gutierrez
           </h1>
-          <p className="text-2xl md:text-3xl font-serif text-foreground/80 tracking-widest mt-4">
+          <p className="text-2xl md:text-3xl font-serif text-white/90 tracking-widest mt-4 drop-shadow">
             18 DE ABRIL DE 2026
           </p>
         </motion.div>
@@ -93,10 +128,10 @@ export function Hero() {
 function CountdownItem({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="text-3xl md:text-5xl font-serif font-bold text-primary">
+      <span className="text-3xl md:text-5xl font-serif font-bold text-white drop-shadow-lg">
         {value.toString().padStart(2, "0")}
       </span>
-      <span className="text-xs md:text-sm uppercase tracking-widest text-foreground/60 font-medium">
+      <span className="text-xs md:text-sm uppercase tracking-widest text-primary/90 font-medium drop-shadow-md">
         {label}
       </span>
     </div>

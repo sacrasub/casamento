@@ -62,7 +62,7 @@ export function GiftList() {
   };
 
   const handleCopyPix = () => {
-    navigator.clipboard.writeText("CHAVE-PIX-AQUI-SACRA-SHIRLEY");
+    navigator.clipboard.writeText("21989746822");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -172,9 +172,9 @@ export function GiftList() {
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-xs text-foreground/60 uppercase tracking-widest">Chave PIX Copia e Cola:</p>
+                  <p className="text-xs text-foreground/60 uppercase tracking-widest">Chave PIX Celular - Copia e Cola:</p>
                   <div className="flex items-center gap-2 p-3 bg-white rounded-xl border border-primary/10 overflow-hidden">
-                    <span className="text-[10px] truncate text-foreground/60 flex-1 text-left">CHAVE-PIX-AQUI-SACRA-SHIRLEY</span>
+                    <span className="text-sm tracking-wider font-medium flex-1 text-left">21989746822</span>
                     <button
                       onClick={handleCopyPix}
                       className="p-2 hover:bg-primary/5 rounded-lg transition-colors"
