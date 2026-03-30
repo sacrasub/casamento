@@ -72,10 +72,8 @@ export function GiftList() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {SAMPLE_GIFTS.map((gift) => (
           <motion.div
-             {...({
-               key: gift.id,
-               whileHover: { y: -5 }
-             } as any)}
+             key={gift.id}
+             whileHover={{ y: -5 }}
              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-primary/5 flex flex-col group"
            >
             <div className="aspect-square overflow-hidden relative">
@@ -119,20 +117,16 @@ export function GiftList() {
       <AnimatePresence>
         {isModalOpen && selectedGift && (
           <motion.div
-             {...({
-               initial: { opacity: 0 },
-               animate: { opacity: 1 },
-               exit: { opacity: 0 }
-             } as any)}
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             exit={{ opacity: 0 }}
              onClick={() => setSelectedGift(null)}
              className="fixed inset-0 bg-foreground/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
            >
              <motion.div
-               {...({
-                 initial: { opacity: 0, scale: 0.9, y: 20 },
-                 animate: { opacity: 1, scale: 1, y: 0 },
-                 exit: { opacity: 0, scale: 0.9, y: 20 }
-               } as any)}
+               initial={{ opacity: 0, scale: 0.9, y: 20 }}
+               animate={{ opacity: 1, scale: 1, y: 0 }}
+               exit={{ opacity: 0, scale: 0.9, y: 20 }}
                onClick={(e) => e.stopPropagation()}
                className="bg-background max-w-lg w-full rounded-3xl shadow-2xl overflow-hidden relative"
              >
@@ -202,7 +196,7 @@ export function GiftList() {
                 </button>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

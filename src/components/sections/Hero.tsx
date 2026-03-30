@@ -73,11 +73,9 @@ export function Hero() {
 
       <div className="relative z-10 text-center px-4 space-y-8">
         <motion.div
-          {...({
-            initial: { opacity: 0, y: 20 },
-            animate: { opacity: 1, y: 0 },
-            transition: { duration: 0.8, ease: "easeOut" }
-          } as any)}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-4"
         >
           <p className="text-primary font-serif italic text-xl md:text-2xl tracking-widest uppercase text-shadow">
@@ -92,11 +90,9 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          {...({
-            initial: { opacity: 0 },
-            animate: { opacity: 1 },
-            transition: { delay: 0.5, duration: 1 }
-          } as any)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
           className="flex justify-center gap-4 md:gap-8"
         >
           <CountdownItem value={timeLeft.days} label="Dias" />
@@ -106,11 +102,9 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          {...({
-            initial: { opacity: 0 },
-            animate: { opacity: 1 },
-            transition: { delay: 1, duration: 1 }
-          } as any)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
           className="pt-8"
         >
           <a

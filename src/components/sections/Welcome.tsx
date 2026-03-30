@@ -7,12 +7,10 @@ export function Welcome() {
     <section className="w-full py-20 bg-white flex flex-col items-center justify-center px-4">
       <div className="max-w-3xl w-full text-center space-y-8">
         <motion.div
-           {...({
-             initial: { opacity: 0, y: 30 },
-             whileInView: { opacity: 1, y: 0 },
-             viewport: { once: true },
-             transition: { duration: 0.8 }
-           } as any)}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
            className="max-w-4xl w-full text-center space-y-8"
          >
           <div className="flex justify-center mb-4">
