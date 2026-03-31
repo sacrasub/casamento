@@ -143,7 +143,7 @@ export function GiftList() {
                     <Quote className="w-8 h-8 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-serif italic">Contribuir com Presente</h3>
+                <h3 className="text-2xl font-serif italic">Presentear os Noivos</h3>
                 <p className="text-foreground/60 text-sm font-sans">
                   Muito obrigado por participar deste momento especial conosco!
                 </p>
@@ -159,14 +159,14 @@ export function GiftList() {
                   <div className="w-48 h-48 bg-white mx-auto p-4 rounded-xl border border-primary/10 flex items-center justify-center">
                     {/* Placeholder for QR Code */}
                     <div className="w-full h-full bg-slate-100 animate-pulse text-[10px] flex items-center justify-center text-slate-400 text-center">
-                      QR CODE PIX <br/> R$ {selectedGift.price.toFixed(2)}
+                      Escaneie para Pagar o Presente <br/> R$ {selectedGift.price.toFixed(2)}
                     </div>
                   </div>
                   <p className="text-sm font-serif italic text-primary">Valor: R$ {selectedGift.price.toFixed(2).replace(".", ",")}</p>
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-xs text-foreground/60 uppercase tracking-widest">Chave PIX Celular - Copia e Cola:</p>
+                  <p className="text-xs text-foreground/60 uppercase tracking-widest">Chave de Pagamento do Presente - Copia e Cola:</p>
                   <div className="flex items-center gap-2 p-3 bg-white rounded-xl border border-primary/10 overflow-hidden">
                     <span className="text-sm tracking-wider font-medium flex-1 text-left">21989746822</span>
                     <button
